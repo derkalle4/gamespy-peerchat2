@@ -1,0 +1,655 @@
+[29.05.2015 16:31:41] INFO  | Starting components...
+[29.05.2015 16:31:41] INFO  | Testing MySQL Connection...
+[29.05.2015 16:31:42] INFO  | MySQL OK, connection ready for operation.
+[29.05.2015 16:31:42] INFO  | TCP Listener started [0.0.0.0:6667]
+[29.05.2015 16:31:42] INFO  | Initializing User List
+[29.05.2015 16:31:42] DEBUG | Query: update `peerchat_users` set `user_online` = 0  where `user_masterserver` = 0
+[29.05.2015 16:31:42] DEBUG | Query: truncate `peerchat_join`
+[29.05.2015 16:31:42] INFO  | Launch OK. Server is up.
+[29.05.2015 16:31:42] INFO  | Press [Return] to exit
+[29.05.2015 16:31:46] DEBUG | Client connected: 192.168.178.57:50503
+[29.05.2015 16:31:46] DEBUG | 192.168.178.57:50503: fetched 22 bytes from stream
+[29.05.2015 16:31:46] ->CRYPT des 1 swempire
+[29.05.2015 16:31:46] DEBUG | Query: select `key_key` from  `serverkeys` where `key_gamename` = 'swempire'
+[29.05.2015 16:31:46] DEBUG | Setting up client at 192.168.178.57:50503 playing swempire with des 
+[29.05.2015 16:31:46] <-:s 705 * RGJrsVaUXRcz1Ww7 2d6wGUdKCsLNqrYY
+
+[29.05.2015 16:31:46] DEBUG | 192.168.178.57:50503: fetched 67 bytes from stream
+[29.05.2015 16:31:46] ->LOGIN 1 * 5038ecf9dafe1e8eebc2e4fb911e3870 :LeKeks@gm1@janelo.net
+[29.05.2015 16:31:46] DEBUG | Query: select `id` from users where `name` = 'LeKeks' and `password` = '5038ecf9dafe1e8eebc2e4fb911e3870' and `email` = 'gm1@janelo.net'
+[29.05.2015 16:31:46] LeKeks<-:s 707 * 419 419
+
+[29.05.2015 16:31:46] DEBUG | 192.168.178.57:50503: fetched 7 bytes from stream
+[29.05.2015 16:31:46] LeKeks->USRIP
+[29.05.2015 16:31:46] LeKeks<-:s 302 :=+@192.168.178.57
+
+[29.05.2015 16:31:46] DEBUG | 192.168.178.57:50503: fetched 94 bytes from stream
+[29.05.2015 16:31:46] LeKeks->USER XpW4lqOa9X|419 127.0.0.1 peerchat.gamespy.com :dc7d49f423eff93dbc1d2777d5c34765
+[29.05.2015 16:31:46] DEBUG | Query: select `id` from `peerchat_users` where `user_username` = 'XpW4lqOa9X'
+[29.05.2015 16:31:46] DEBUG | Query: update `peerchat_users` set`user_online` = 1,`user_lastseen` = UNIX_TIMESTAMP(), `user_masterserver` = 0, `user_channel` = 0,`user_profile` = 419,`user_loggedin` = 1 where `id` = 15
+[29.05.2015 16:31:46] DEBUG | 127.0.0.1 connected with User-ID 'XpW4lqOa9X', connection identifier: ''
+[29.05.2015 16:31:46] LeKeks->NICK *
+[29.05.2015 16:31:46] DEBUG | Query: update `peerchat_users` set`user_nickname` = 'LeKeks-gs' where `id` = 15
+[29.05.2015 16:31:46] LeKeks-gs<-:s 001 LeKeks-gs :Hello, LeKeks-gs. Nice to meet you.
+
+[29.05.2015 16:31:46] LeKeks-gs<-:s 375 LeKeks-gs :[motd] I like cookies :3
+
+[29.05.2015 16:31:46] DEBUG | 192.168.178.57:50503: fetched 30 bytes from stream
+[29.05.2015 16:31:46] LeKeks-gs->CDKEY a8be-e59-7e4-4efb-fr20
+[29.05.2015 16:31:46] DEBUG | Query: update `peerchat_users` set`user_keyhash` = 'a8be-e59-7e4-4efb-fr20' where `id` = 15
+[29.05.2015 16:31:46] LeKeks-gs<-:s 706 * 1 Authenticated
+
+[29.05.2015 16:31:46] DEBUG | 192.168.178.57:50503: fetched 36 bytes from stream
+[29.05.2015 16:31:46] LeKeks-gs->JOIN #GSP!swempire 
+[29.05.2015 16:31:46] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire'
+[29.05.2015 16:31:46] DEBUG | Query: replace into `peerchat_join` set `channel` = 32 , `user` = 15
+[29.05.2015 16:31:46] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 32
+[29.05.2015 16:31:46] LeKeks-gs->WHO LeKeks-gs
+[29.05.2015 16:31:46] DEBUG | XpW4lqOa9X joined channel #GSP!swempire
+[29.05.2015 16:31:46] LeKeks-gs<-:LeKeks-gs!XpW4lqOa9X|419@* JOIN :#GSP!swempire
+
+[29.05.2015 16:31:46] DEBUG | 192.168.178.57:50503: fetched 20 bytes from stream
+[29.05.2015 16:31:46] LeKeks-gs->MODE #GSP!swempire
+[29.05.2015 16:31:46] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire'
+[29.05.2015 16:31:46] DEBUG | Query: select * from `v_peerchat_users` where `user_nickname` = 'LeKeks-gs'
+[29.05.2015 16:31:46] LeKeks-gs<-:s 352 #GSP!swempire LeKeks-gs 192.168.178.57 s LeKeks-gs * :0 BF1E098BF4CA675C2B51077D62659F62
+
+[29.05.2015 16:31:46] LeKeks-gs<-:s 315 LeKeks-gs LeKeks-gs :End of Who
+
+[29.05.2015 16:31:46] LeKeks-gs<-:s 332 LeKeks-gs #GSP!swempire :base
+
+[29.05.2015 16:31:46] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 32
+[29.05.2015 16:31:46] LeKeks-gs<-:s 353 LeKeks-gs * #GSP!swempire :LeKeks-gs 
+
+[29.05.2015 16:31:46] LeKeks-gs<-:s 366 LeKeks-gs #GSP!swempire :End of NAMES list.
+
+[29.05.2015 16:31:47] DEBUG | 192.168.178.57:50503: fetched 41 bytes from stream
+[29.05.2015 16:31:47] LeKeks-gs->GETCKEY #GSP!swempire * 002 0 :\b_flags
+[29.05.2015 16:31:47] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire'
+[29.05.2015 16:31:47] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 32
+[29.05.2015 16:31:47] LeKeks-gs<-:s 702 LeKeks-gs #GSP!swempire LeKeks-gs 002 :\
+
+[29.05.2015 16:31:47] LeKeks-gs<-:s 703 LeKeks-gs #GSP!swempire 002 :End of GETCKEY
+
+[29.05.2015 16:31:48] DEBUG | Client connected: 192.168.178.35:4979
+[29.05.2015 16:31:48] DEBUG | 192.168.178.35:4979: fetched 22 bytes from stream
+[29.05.2015 16:31:48] ->CRYPT des 1 swempire
+[29.05.2015 16:31:48] DEBUG | Query: select `key_key` from  `serverkeys` where `key_gamename` = 'swempire'
+[29.05.2015 16:31:48] DEBUG | Setting up client at 192.168.178.35:4979 playing swempire with des 
+[29.05.2015 16:31:48] <-:s 705 * RGJrsVaUXRcz1Ww7 2d6wGUdKCsLNqrYY
+
+[29.05.2015 16:31:48] DEBUG | 192.168.178.35:4979: fetched 65 bytes from stream
+[29.05.2015 16:31:48] ->LOGIN 1 * 098f6bcd4621d373cade4e832627b4f6 :test@test@kandru.de
+[29.05.2015 16:31:48] DEBUG | Query: select `id` from users where `name` = 'test' and `password` = '098f6bcd4621d373cade4e832627b4f6' and `email` = 'test@kandru.de'
+[29.05.2015 16:31:48] test<-:s 707 * 3 3
+
+[29.05.2015 16:31:48] DEBUG | 192.168.178.35:4979: fetched 7 bytes from stream
+[29.05.2015 16:31:48] test->USRIP
+[29.05.2015 16:31:48] test<-:s 302 :=+@192.168.178.35
+
+[29.05.2015 16:31:48] DEBUG | 192.168.178.35:4979: fetched 92 bytes from stream
+[29.05.2015 16:31:48] test->USER XGa4lqOa9X|3 127.0.0.1 peerchat.gamespy.com :46fff08dd5535a73f012f101bb469042
+[29.05.2015 16:31:48] DEBUG | Query: select `id` from `peerchat_users` where `user_username` = 'XGa4lqOa9X'
+[29.05.2015 16:31:48] DEBUG | Query: update `peerchat_users` set`user_online` = 1,`user_lastseen` = UNIX_TIMESTAMP(), `user_masterserver` = 0, `user_channel` = 0,`user_profile` = 3,`user_loggedin` = 1 where `id` = 16
+[29.05.2015 16:31:48] DEBUG | 127.0.0.1 connected with User-ID 'XGa4lqOa9X', connection identifier: ''
+[29.05.2015 16:31:48] test->NICK *
+[29.05.2015 16:31:48] DEBUG | Query: update `peerchat_users` set`user_nickname` = 'test-gs' where `id` = 16
+[29.05.2015 16:31:48] test-gs<-:s 001 test-gs :Hello, test-gs. Nice to meet you.
+
+[29.05.2015 16:31:48] DEBUG | 192.168.178.35:4979: fetched 30 bytes from stream
+[29.05.2015 16:31:48] test-gs->CDKEY a8be-e59-7e4-4efb-fr20
+[29.05.2015 16:31:48] DEBUG | Query: update `peerchat_users` set`user_keyhash` = 'a8be-e59-7e4-4efb-fr20' where `id` = 16
+[29.05.2015 16:31:48] test-gs<-:s 375 test-gs :[motd] I like cookies :3
+
+[29.05.2015 16:31:48] test-gs<-:s 706 * 1 Authenticated
+
+[29.05.2015 16:31:48] DEBUG | 192.168.178.35:4979: fetched 34 bytes from stream
+[29.05.2015 16:31:48] test-gs->JOIN #GSP!swempire 
+[29.05.2015 16:31:48] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire'
+[29.05.2015 16:31:48] DEBUG | Query: replace into `peerchat_join` set `channel` = 32 , `user` = 16
+[29.05.2015 16:31:48] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 32
+[29.05.2015 16:31:48] test-gs->WHO test-gs
+[29.05.2015 16:31:48] DEBUG | XGa4lqOa9X joined channel #GSP!swempire
+[29.05.2015 16:31:48] LeKeks-gs<-:test-gs!XGa4lqOa9X|3@* JOIN :#GSP!swempire
+
+[29.05.2015 16:31:48] DEBUG | XGa4lqOa9X joined channel #GSP!swempire
+[29.05.2015 16:31:48] test-gs<-:test-gs!XGa4lqOa9X|3@* JOIN :#GSP!swempire
+
+[29.05.2015 16:31:48] DEBUG | Query: select * from `v_peerchat_users` where `user_nickname` = 'test-gs'
+[29.05.2015 16:31:48] test-gs<-:s 352 #GSP!swempire @test-gs 192.168.178.35 s @test-gs * :0 BF1E098BF4CA675C2B51077D62659F62
+
+[29.05.2015 16:31:48] DEBUG | 192.168.178.35:4979: fetched 20 bytes from stream
+[29.05.2015 16:31:48] test-gs->MODE #GSP!swempire
+[29.05.2015 16:31:48] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire'
+[29.05.2015 16:31:48] test-gs<-:s 315 test-gs test-gs :End of Who
+
+[29.05.2015 16:31:48] test-gs<-:s 332 test-gs #GSP!swempire :base
+
+[29.05.2015 16:31:48] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 32
+[29.05.2015 16:31:48] test-gs<-:s 353 test-gs * #GSP!swempire :LeKeks-gs @test-gs 
+
+[29.05.2015 16:31:48] test-gs<-:s 366 test-gs #GSP!swempire :End of NAMES list.
+
+[29.05.2015 16:31:48] DEBUG | 192.168.178.35:4979: fetched 41 bytes from stream
+[29.05.2015 16:31:48] test-gs->GETCKEY #GSP!swempire * 002 0 :\b_flags
+[29.05.2015 16:31:48] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire'
+[29.05.2015 16:31:48] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 32
+[29.05.2015 16:31:48] test-gs<-:s 702 test-gs #GSP!swempire LeKeks-gs 002 :\
+
+[29.05.2015 16:31:49] test-gs<-:s 702 test-gs #GSP!swempire test-gs 002 :\
+
+[29.05.2015 16:31:49] test-gs<-:s 703 test-gs #GSP!swempire 002 :End of GETCKEY
+
+[29.05.2015 16:31:52] DEBUG | 192.168.178.57:50503: fetched 14 bytes from stream
+[29.05.2015 16:31:52] LeKeks-gs->JOIN #GPG!1 
+[29.05.2015 16:31:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GPG!1'
+[29.05.2015 16:31:52] DEBUG | Query: replace into `peerchat_join` set `channel` = 37 , `user` = 15
+[29.05.2015 16:31:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 37
+[29.05.2015 16:31:52] DEBUG | XpW4lqOa9X joined channel #GPG!1
+[29.05.2015 16:31:52] LeKeks-gs<-:LeKeks-gs!XpW4lqOa9X|419@* JOIN :#GPG!1
+
+[29.05.2015 16:31:52] DEBUG | 192.168.178.57:50503: fetched 13 bytes from stream
+[29.05.2015 16:31:52] LeKeks-gs->MODE #GPG!1
+[29.05.2015 16:31:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GPG!1'
+[29.05.2015 16:31:52] LeKeks-gs<-:s 332 LeKeks-gs #GPG!1 :GAMEMASTER-SWEMPIRE_REB
+
+[29.05.2015 16:31:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 37
+[29.05.2015 16:31:52] LeKeks-gs<-:s 353 LeKeks-gs * #GPG!1 :LeKeks-gs 
+
+[29.05.2015 16:31:52] LeKeks-gs<-:s 366 LeKeks-gs #GPG!1 :End of NAMES list.
+
+[29.05.2015 16:31:53] DEBUG | 192.168.178.57:50503: fetched 56 bytes from stream
+[29.05.2015 16:31:53] LeKeks-gs->GETCKEY #GPG!1 * 003 0 :\b_flags
+[29.05.2015 16:31:53] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GPG!1'
+[29.05.2015 16:31:53] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 37
+[29.05.2015 16:31:53] LeKeks-gs->PART #GSP!swempire :
+[29.05.2015 16:31:53] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire'
+[29.05.2015 16:31:53] LeKeks-gs<-:s 702 LeKeks-gs #GPG!1 LeKeks-gs 003 :\
+
+[29.05.2015 16:31:53] DEBUG | Query: delete from `peerchat_join` where `user` = 15 and `channel` = 32
+[29.05.2015 16:31:53] DEBUG | XpW4lqOa9X left channel #GSP!swempire
+[29.05.2015 16:31:53] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 32
+[29.05.2015 16:31:53] test-gs<-:LeKeks-gs!XpW4lqOa9X|419@* PART :#GSP!swempire
+
+[29.05.2015 16:31:53] LeKeks-gs<-:s 703 LeKeks-gs #GPG!1 003 :End of GETCKEY
+
+[29.05.2015 16:31:54] DEBUG | 192.168.178.35:4979: fetched 14 bytes from stream
+[29.05.2015 16:31:54] test-gs->JOIN #GPG!1 
+[29.05.2015 16:31:54] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GPG!1'
+[29.05.2015 16:31:54] DEBUG | Query: replace into `peerchat_join` set `channel` = 37 , `user` = 16
+[29.05.2015 16:31:54] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 37
+[29.05.2015 16:31:54] DEBUG | XGa4lqOa9X joined channel #GPG!1
+[29.05.2015 16:31:54] test-gs<-:test-gs!XGa4lqOa9X|3@* JOIN :#GPG!1
+
+[29.05.2015 16:31:54] DEBUG | XGa4lqOa9X joined channel #GPG!1
+[29.05.2015 16:31:54] LeKeks-gs<-:test-gs!XGa4lqOa9X|3@* JOIN :#GPG!1
+
+[29.05.2015 16:31:54] DEBUG | 192.168.178.35:4979: fetched 13 bytes from stream
+[29.05.2015 16:31:54] test-gs->MODE #GPG!1
+[29.05.2015 16:31:54] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GPG!1'
+[29.05.2015 16:31:54] test-gs<-:s 332 test-gs #GPG!1 :GAMEMASTER-SWEMPIRE_REB
+
+[29.05.2015 16:31:54] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 37
+[29.05.2015 16:31:54] test-gs<-:s 353 test-gs * #GPG!1 :LeKeks-gs @test-gs 
+
+[29.05.2015 16:31:54] test-gs<-:s 366 test-gs #GPG!1 :End of NAMES list.
+
+[29.05.2015 16:31:54] DEBUG | 192.168.178.35:4979: fetched 56 bytes from stream
+[29.05.2015 16:31:54] test-gs->GETCKEY #GPG!1 * 003 0 :\b_flags
+[29.05.2015 16:31:54] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GPG!1'
+[29.05.2015 16:31:54] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 37
+[29.05.2015 16:31:54] test-gs->PART #GSP!swempire :
+[29.05.2015 16:31:54] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire'
+[29.05.2015 16:31:54] test-gs<-:s 702 test-gs #GPG!1 LeKeks-gs 003 :\
+
+[29.05.2015 16:31:54] DEBUG | Query: delete from `peerchat_join` where `user` = 16 and `channel` = 32
+[29.05.2015 16:31:54] DEBUG | XGa4lqOa9X left channel #GSP!swempire
+[29.05.2015 16:31:54] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 32
+[29.05.2015 16:31:54] test-gs<-:s 702 test-gs #GPG!1 test-gs 003 :\
+
+[29.05.2015 16:31:54] test-gs<-:s 703 test-gs #GPG!1 003 :End of GETCKEY
+
+[29.05.2015 16:32:00] DEBUG | 192.168.178.57:50503: fetched 21 bytes from stream
+[29.05.2015 16:32:00] LeKeks-gs->PRIVMSG #GPG!1 :Hi!
+[29.05.2015 16:32:00] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GPG!1'
+[29.05.2015 16:32:00] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 37
+[29.05.2015 16:32:00] test-gs<-:LeKeks-gs PRIVMSG #GPG!1 :Hi!
+
+[29.05.2015 16:32:04] DEBUG | 192.168.178.35:4979: fetched 27 bytes from stream
+[29.05.2015 16:32:04] test-gs->PRIVMSG #GPG!1 :hi there!
+[29.05.2015 16:32:04] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GPG!1'
+[29.05.2015 16:32:04] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 37
+[29.05.2015 16:32:04] LeKeks-gs<-:test-gs PRIVMSG #GPG!1 :hi there!
+
+[29.05.2015 16:33:51] DEBUG | 192.168.178.35:4979: fetched 32 bytes from stream
+[29.05.2015 16:33:51] test-gs->JOIN #GSP!swempire!Mh3aKJK4qM 
+[29.05.2015 16:33:51] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:51] DEBUG | Query: replace into `peerchat_join` set `channel` = 44 , `user` = 16
+[29.05.2015 16:33:51] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:51] DEBUG | XGa4lqOa9X joined channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:33:51] test-gs<-:test-gs!XGa4lqOa9X|3@* JOIN :#GSP!swempire!Mh3aKJK4qM
+
+[29.05.2015 16:33:51] DEBUG | 192.168.178.35:4979: fetched 31 bytes from stream
+[29.05.2015 16:33:51] test-gs->MODE #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:33:51] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:51] test-gs<-:s 332 test-gs #GSP!swempire!Mh3aKJK4qM :TEST
+
+[29.05.2015 16:33:51] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:51] test-gs<-:s 353 test-gs * #GSP!swempire!Mh3aKJK4qM :@test-gs 
+
+[29.05.2015 16:33:51] test-gs<-:s 366 test-gs #GSP!swempire!Mh3aKJK4qM :End of NAMES list.
+
+[29.05.2015 16:33:51] DEBUG | 192.168.178.35:4979: fetched 965 bytes from stream
+[29.05.2015 16:33:51] test-gs->MODE #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:33:51] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:51] test-gs->SETCKEY #GPG!1 test-gs :\b_flags\s
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `id` = 16
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GPG!1'
+[29.05.2015 16:33:52] DEBUG | Updating CKEY-Flags XGa4lqOa9X > #GPG!1
+[29.05.2015 16:33:52] DEBUG | Query: update `peerchat_join` set`flags` ='b_flags=s;' where `user` = 16 and `channel` = 37
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 37
+[29.05.2015 16:33:52] test-gs<-:s 332 test-gs #GSP!swempire!Mh3aKJK4qM :TEST
+
+[29.05.2015 16:33:52] test-gs->SETCKEY #GSP!swempire!Mh3aKJK4qM test-gs :\b_flags\sh
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `id` = 16
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Updating CKEY-Flags XGa4lqOa9X > #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:33:52] DEBUG | Query: update `peerchat_join` set`flags` ='b_flags=sh;' where `user` = 16 and `channel` = 44
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:52] LeKeks-gs<-:s 702 #GPG!1 #GPG!1 test-gs BCAST :\b_flags\s
+
+[29.05.2015 16:33:52] test-gs->GETCKEY #GSP!swempire!Mh3aKJK4qM * 004 0 :\username\b_flags
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:52] test-gs->TOPIC #GSP!swempire!Mh3aKJK4qM :TEST
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:52] test-gs<-:s 353 test-gs * #GSP!swempire!Mh3aKJK4qM :@test-gs 
+
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Query: update peerchat_channels set `channel_topic` = 'TEST' where `id` = 44
+[29.05.2015 16:33:52] test-gs->MODE #GSP!swempire!Mh3aKJK4qM +l 8
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] test-gs->PART #GPG!1 :
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GPG!1'
+[29.05.2015 16:33:52] DEBUG | Query: delete from `peerchat_join` where `user` = 16 and `channel` = 37
+[29.05.2015 16:33:52] DEBUG | XGa4lqOa9X left channel #GPG!1
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 37
+[29.05.2015 16:33:52] test-gs->SETCHANKEY #GSP!swempire!Mh3aKJK4qM :\gamever\-74853602
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] test-gs<-:s 366 test-gs #GSP!swempire!Mh3aKJK4qM :End of NAMES list.
+
+[29.05.2015 16:33:52] LeKeks-gs<-:test-gs!XGa4lqOa9X|3@* PART :#GPG!1
+
+[29.05.2015 16:33:52] DEBUG | Query: update peerchat_channels set `channel_key` = 'gamever=-74853602;player_=test;numplayers=2;mapname=.*Data*Art*Maps*_MP_LAND_SHOLA.TED;maxplayers=2;gametype=2;' where `id` = 44
+[29.05.2015 16:33:52] test-gs<-:s 702 #GPG!1 #GPG!1 test-gs BCAST :\b_flags\s
+
+[29.05.2015 16:33:52] test-gs->SETCHANKEY #GSP!swempire!Mh3aKJK4qM :\player_\test
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Query: update peerchat_channels set `channel_key` = 'gamever=-74853602;player_=test;numplayers=2;mapname=.*Data*Art*Maps*_MP_LAND_SHOLA.TED;maxplayers=2;gametype=2;' where `id` = 44
+[29.05.2015 16:33:52] test-gs->SETCHANKEY #GSP!swempire!Mh3aKJK4qM :\numplayers\0
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Query: update peerchat_channels set `channel_key` = 'gamever=-74853602;player_=test;numplayers=0;mapname=.*Data*Art*Maps*_MP_LAND_SHOLA.TED;maxplayers=2;gametype=2;' where `id` = 44
+[29.05.2015 16:33:52] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :KEY 
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:52] test-gs<-:s 702 #GSP!swempire!Mh3aKJK4qM #GSP!swempire!Mh3aKJK4qM test-gs BCAST :\b_flags\sh
+
+[29.05.2015 16:33:52] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :PIP E:c0a8b223;04d2I:c0a8b223;04d2fNM
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:52] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :KEY 
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:52] test-gs->SETCHANKEY #GSP!swempire!Mh3aKJK4qM :\mapname\.*Data*Art*Maps*_MP_LAND_SHOLA.TED\maxplayers\2
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Query: update peerchat_channels set `channel_key` = 'gamever=-74853602;player_=test;numplayers=0;mapname=.*Data*Art*Maps*_MP_LAND_SHOLA.TED;maxplayers=2;gametype=2;' where `id` = 44
+[29.05.2015 16:33:52] test-gs->MODE #GSP!swempire!Mh3aKJK4qM +l 2
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] test-gs<-:s 702 test-gs #GSP!swempire!Mh3aKJK4qM test-gs 004 :\XGa4lqOa9X|3\sh
+
+[29.05.2015 16:33:52] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :KEY 
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:52] test-gs->SETCHANKEY #GSP!swempire!Mh3aKJK4qM :\gametype\2
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Query: update peerchat_channels set `channel_key` = 'gamever=-74853602;player_=test;numplayers=0;mapname=.*Data*Art*Maps*_MP_LAND_SHOLA.TED;maxplayers=2;gametype=2;' where `id` = 44
+[29.05.2015 16:33:52] test-gs<-:s 703 test-gs #GSP!swempire!Mh3aKJK4qM 004 :End of GETCKEY
+
+[29.05.2015 16:33:52] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :KEY 
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:52] test-gs->SETCKEY #GSP!swempire!Mh3aKJK4qM test-gs :\b_flags\srh
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `id` = 16
+[29.05.2015 16:33:52] test-gs<-:s 332 test-gs #GSP!swempire!Mh3aKJK4qM :TEST
+
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Updating CKEY-Flags XGa4lqOa9X > #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:33:52] DEBUG | Query: update `peerchat_join` set`flags` ='b_flags=srh;' where `user` = 16 and `channel` = 44
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:52] test-gs->PRIVMSG #GSP!swempire!Mh3aKJK4qM :@@@NFO \$flags$\rX\
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:52] test-gs->UTM test-gs :SCH DJyGJMNJ
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `user_nickname` = 'test-gs'
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:52] test-gs<-:s 353 test-gs * #GSP!swempire!Mh3aKJK4qM :@test-gs 
+
+[29.05.2015 16:33:52] DEBUG | 192.168.178.35:4979: fetched 436 bytes from stream
+[29.05.2015 16:33:52] test-gs->GETCHANKEY #GSP!swempire!Mh3aKJK4qM 005 0 :\mapname\gametype\gamever\numplayers\maxplayers\password\player_
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] test-gs<-:s 366 test-gs #GSP!swempire!Mh3aKJK4qM :End of NAMES list.
+
+[29.05.2015 16:33:52] test-gs->GETCHANKEY #GSP!swempire!Mh3aKJK4qM 006 0 :\mapname\gametype\gamever\numplayers\maxplayers\password\player_
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] test-gs->GETCHANKEY #GSP!swempire!Mh3aKJK4qM 007 0 :\mapname\gametype\gamever\numplayers\maxplayers\password\player_
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] test-gs->GETCHANKEY #GSP!swempire!Mh3aKJK4qM 008 0 :\mapname\gametype\gamever\numplayers\maxplayers\password\player_
+[29.05.2015 16:33:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:52] test-gs<-:s 332 test-gs #GSP!swempire!Mh3aKJK4qM :TEST
+
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:52] test-gs<-:s 353 test-gs * #GSP!swempire!Mh3aKJK4qM :@test-gs 
+
+[29.05.2015 16:33:52] test-gs<-:s 366 test-gs #GSP!swempire!Mh3aKJK4qM :End of NAMES list.
+
+[29.05.2015 16:33:52] test-gs<-:s 702 #GSP!swempire!Mh3aKJK4qM #GSP!swempire!Mh3aKJK4qM test-gs BCAST :\b_flags\srh
+
+[29.05.2015 16:33:52] test-gs<-:test-gs!*@* UTM test-gs :SCH DJyGJMNJ
+
+[29.05.2015 16:33:52] DEBUG | 192.168.178.35:4979: fetched 52 bytes from stream
+[29.05.2015 16:33:52] test-gs->UTM test-gs :SAU b9cba17213408479cae2968e733ff2453
+[29.05.2015 16:33:52] DEBUG | Query: select * from `v_peerchat_users` where `user_nickname` = 'test-gs'
+[29.05.2015 16:33:52] test-gs<-:s 704 test-gs #GSP!swempire!Mh3aKJK4qM 005 :\.*Data*Art*Maps*_MP_LAND_SHOLA.TED\2\-74853602\0\2\\test
+
+[29.05.2015 16:33:52] test-gs<-:s 704 test-gs #GSP!swempire!Mh3aKJK4qM 006 :\.*Data*Art*Maps*_MP_LAND_SHOLA.TED\2\-74853602\0\2\\test
+
+[29.05.2015 16:33:52] test-gs<-:s 704 test-gs #GSP!swempire!Mh3aKJK4qM 007 :\.*Data*Art*Maps*_MP_LAND_SHOLA.TED\2\-74853602\0\2\\test
+
+[29.05.2015 16:33:52] test-gs<-:s 704 test-gs #GSP!swempire!Mh3aKJK4qM 008 :\.*Data*Art*Maps*_MP_LAND_SHOLA.TED\2\-74853602\0\2\\test
+
+[29.05.2015 16:33:52] test-gs<-:test-gs!*@* UTM test-gs :SAU b9cba17213408479cae2968e733ff2453
+
+[29.05.2015 16:33:54] DEBUG | 192.168.178.35:4979: fetched 167 bytes from stream
+[29.05.2015 16:33:54] test-gs->SETCHANKEY #GSP!swempire!Mh3aKJK4qM :\mapname\.*Data*Art*Maps*_MP_LAND_SHOLA.TED\maxplayers\2
+[29.05.2015 16:33:54] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:54] DEBUG | Query: update peerchat_channels set `channel_key` = 'gamever=-74853602;player_=test;numplayers=0;mapname=.*Data*Art*Maps*_MP_LAND_SHOLA.TED;maxplayers=2;gametype=2;' where `id` = 44
+[29.05.2015 16:33:54] test-gs->MODE #GSP!swempire!Mh3aKJK4qM +l 2
+[29.05.2015 16:33:54] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:54] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :KEY 
+[29.05.2015 16:33:54] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:54] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:33:54] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:54] test-gs<-:s 332 test-gs #GSP!swempire!Mh3aKJK4qM :TEST
+
+[29.05.2015 16:33:54] DEBUG | 192.168.178.35:4979: fetched 109 bytes from stream
+[29.05.2015 16:33:54] test-gs->GETCHANKEY #GSP!swempire!Mh3aKJK4qM 009 0 :\mapname\gametype\gamever\numplayers\maxplayers\password\player_
+[29.05.2015 16:33:54] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:33:54] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:33:54] test-gs<-:s 353 test-gs * #GSP!swempire!Mh3aKJK4qM :@test-gs 
+
+[29.05.2015 16:33:54] test-gs<-:s 366 test-gs #GSP!swempire!Mh3aKJK4qM :End of NAMES list.
+
+[29.05.2015 16:33:54] test-gs<-:s 704 test-gs #GSP!swempire!Mh3aKJK4qM 009 :\.*Data*Art*Maps*_MP_LAND_SHOLA.TED\2\-74853602\0\2\\test
+
+[29.05.2015 16:34:06] DEBUG | 192.168.178.57:50503: fetched 32 bytes from stream
+[29.05.2015 16:34:06] LeKeks-gs->JOIN #GSP!swempire!Mh3aKJK4qM 
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] DEBUG | Query: replace into `peerchat_join` set `channel` = 44 , `user` = 15
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:06] DEBUG | XpW4lqOa9X joined channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:34:06] test-gs<-:LeKeks-gs!XpW4lqOa9X|419@* JOIN :#GSP!swempire!Mh3aKJK4qM
+
+[29.05.2015 16:34:06] DEBUG | XpW4lqOa9X joined channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:34:06] LeKeks-gs<-:LeKeks-gs!XpW4lqOa9X|419@* JOIN :#GSP!swempire!Mh3aKJK4qM
+
+[29.05.2015 16:34:06] DEBUG | 192.168.178.57:50503: fetched 31 bytes from stream
+[29.05.2015 16:34:06] LeKeks-gs->MODE #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] LeKeks-gs<-:s 332 LeKeks-gs #GSP!swempire!Mh3aKJK4qM :TEST
+
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:06] LeKeks-gs<-:s 353 LeKeks-gs * #GSP!swempire!Mh3aKJK4qM :LeKeks-gs @test-gs 
+
+[29.05.2015 16:34:06] LeKeks-gs<-:s 366 LeKeks-gs #GSP!swempire!Mh3aKJK4qM :End of NAMES list.
+
+[29.05.2015 16:34:06] DEBUG | 192.168.178.35:4979: fetched 445 bytes from stream
+[29.05.2015 16:34:06] test-gs->PRIVMSG LeKeks-gs :@@@NFO \$flags$\rX\
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `user_nickname` = 'LeKeks-gs'
+[29.05.2015 16:34:06] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :PIP E:c0a8b223;04d2I:c0a8b223;04d2fNM
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:06] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :PLA N27D86D6AT0F01C00P0L0IFD0U0023F00BB
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:06] LeKeks-gs<-:test-gs PRIVMSG LeKeks-gs :@@@NFO \$flags$\rX\
+
+[29.05.2015 16:34:06] test-gs->UTM LeKeks-gs :SCH DJyGJMNJ
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `user_nickname` = 'LeKeks-gs'
+[29.05.2015 16:34:06] test-gs->SETCHANKEY #GSP!swempire!Mh3aKJK4qM :\player_\test
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] DEBUG | Query: update peerchat_channels set `channel_key` = 'gamever=-74853602;player_=test;numplayers=0;mapname=.*Data*Art*Maps*_MP_LAND_SHOLA.TED;maxplayers=2;gametype=2;' where `id` = 44
+[29.05.2015 16:34:06] test-gs->SETCHANKEY #GSP!swempire!Mh3aKJK4qM :\numplayers\2
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] DEBUG | Query: update peerchat_channels set `channel_key` = 'gamever=-74853602;player_=test;numplayers=2;mapname=.*Data*Art*Maps*_MP_LAND_SHOLA.TED;maxplayers=2;gametype=2;' where `id` = 44
+[29.05.2015 16:34:06] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :KEY 
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:06] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :OPT C001388T000F0FW13H51A2
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] LeKeks-gs<-:test-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :PIP E:c0a8b223;04d2I:c0a8b223;04d2fNM
+
+[29.05.2015 16:34:06] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:06] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :SSL FF
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:06] LeKeks-gs<-:test-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :PLA N27D86D6AT0F01C00P0L0IFD0U0023F00BB
+
+[29.05.2015 16:34:06] LeKeks-gs<-:test-gs!*@* UTM LeKeks-gs :SCH DJyGJMNJ
+
+[29.05.2015 16:34:06] LeKeks-gs<-:test-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :KEY 
+
+[29.05.2015 16:34:06] LeKeks-gs<-:test-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :OPT C001388T000F0FW13H51A2
+
+[29.05.2015 16:34:06] DEBUG | 192.168.178.35:4979: fetched 180 bytes from stream
+[29.05.2015 16:34:06] test-gs->GETCHANKEY #GSP!swempire!Mh3aKJK4qM 010 0 :\mapname\gametype\gamever\numplayers\maxplayers\password\player_
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :PLA NBD89E94FT0F00C01P0L1IFD0U0000F0000
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:06] test-gs<-:s 704 test-gs #GSP!swempire!Mh3aKJK4qM 010 :\.*Data*Art*Maps*_MP_LAND_SHOLA.TED\2\-74853602\2\2\\test
+
+[29.05.2015 16:34:06] LeKeks-gs<-:test-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :SSL FF
+
+[29.05.2015 16:34:06] LeKeks-gs<-:test-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :PLA NBD89E94FT0F00C01P0L1IFD0U0000F0000
+
+[29.05.2015 16:34:06] DEBUG | 192.168.178.57:50503: fetched 529 bytes from stream
+[29.05.2015 16:34:06] LeKeks-gs->SETCKEY #GPG!1 LeKeks-gs :\b_flags\s
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `id` = 15
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GPG!1'
+[29.05.2015 16:34:06] DEBUG | Updating CKEY-Flags XpW4lqOa9X > #GPG!1
+[29.05.2015 16:34:06] DEBUG | Query: update `peerchat_join` set`flags` ='b_flags=s;' where `user` = 15 and `channel` = 37
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 37
+[29.05.2015 16:34:06] LeKeks-gs->SETCKEY #GSP!swempire!Mh3aKJK4qM LeKeks-gs :\b_flags\s
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `id` = 15
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] DEBUG | Updating CKEY-Flags XpW4lqOa9X > #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:34:06] DEBUG | Query: update `peerchat_join` set`flags` ='b_flags=s;' where `user` = 15 and `channel` = 44
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:06] LeKeks-gs->GETCKEY #GSP!swempire!Mh3aKJK4qM * 004 0 :\username\b_flags
+[29.05.2015 16:34:06] LeKeks-gs<-:s 702 #GPG!1 #GPG!1 LeKeks-gs BCAST :\b_flags\s
+
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] test-gs<-:s 702 #GSP!swempire!Mh3aKJK4qM #GSP!swempire!Mh3aKJK4qM LeKeks-gs BCAST :\b_flags\s
+
+[29.05.2015 16:34:06] LeKeks-gs<-:s 702 #GSP!swempire!Mh3aKJK4qM #GSP!swempire!Mh3aKJK4qM LeKeks-gs BCAST :\b_flags\s
+
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:06] LeKeks-gs->PART #GPG!1 :
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GPG!1'
+[29.05.2015 16:34:06] DEBUG | Query: delete from `peerchat_join` where `user` = 15 and `channel` = 37
+[29.05.2015 16:34:06] DEBUG | XpW4lqOa9X left channel #GPG!1
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 37
+[29.05.2015 16:34:06] LeKeks-gs->UTM #GSP!swempire!Mh3aKJK4qM :PIP E:c0a8b239;04d2I:c0a8b239;04d2fNB
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:06] LeKeks-gs->UTM #GSP!swempire!Mh3aKJK4qM :PLA NBD89E94FT0F00C06P0LFIFD0U0023F0056
+[29.05.2015 16:34:06] LeKeks-gs<-:s 702 LeKeks-gs #GSP!swempire!Mh3aKJK4qM LeKeks-gs 004 :\XpW4lqOa9X|419\s
+
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] test-gs<-:LeKeks-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :PIP E:c0a8b239;04d2I:c0a8b239;04d2fNB
+
+[29.05.2015 16:34:06] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:06] LeKeks-gs->UTM LeKeks-gs :SCH DJyGNKGK
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `user_nickname` = 'LeKeks-gs'
+[29.05.2015 16:34:06] LeKeks-gs->UTM test-gs :SCH DJyGNKGK
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `user_nickname` = 'test-gs'
+[29.05.2015 16:34:06] LeKeks-gs->UTM test-gs :SAU 43444ab3d4ce430d4673405f44b24850419
+[29.05.2015 16:34:06] DEBUG | Query: select * from `v_peerchat_users` where `user_nickname` = 'test-gs'
+[29.05.2015 16:34:06] LeKeks-gs->GETCHANKEY #GSP!swempire!Mh3aKJK4qM 005 0 :\mapname\gametype\gamever\numplayers\maxplayers\password\player_
+[29.05.2015 16:34:06] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:06] LeKeks-gs<-:s 702 LeKeks-gs #GSP!swempire!Mh3aKJK4qM test-gs 004 :\XGa4lqOa9X|3\srh
+
+[29.05.2015 16:34:06] test-gs<-:LeKeks-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :PLA NBD89E94FT0F00C06P0LFIFD0U0023F0056
+
+[29.05.2015 16:34:06] LeKeks-gs<-:s 703 LeKeks-gs #GSP!swempire!Mh3aKJK4qM 004 :End of GETCKEY
+
+[29.05.2015 16:34:06] test-gs<-:LeKeks-gs!*@* UTM test-gs :SCH DJyGNKGK
+
+[29.05.2015 16:34:06] LeKeks-gs<-:LeKeks-gs!*@* UTM LeKeks-gs :SCH DJyGNKGK
+
+[29.05.2015 16:34:06] test-gs<-:LeKeks-gs!*@* UTM test-gs :SAU 43444ab3d4ce430d4673405f44b24850419
+
+[29.05.2015 16:34:06] LeKeks-gs<-:s 704 LeKeks-gs #GSP!swempire!Mh3aKJK4qM 005 :\.*Data*Art*Maps*_MP_LAND_SHOLA.TED\2\-74853602\2\2\\test
+
+[29.05.2015 16:34:07] DEBUG | 192.168.178.35:4979: fetched 71 bytes from stream
+[29.05.2015 16:34:07] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :PLA NBD89E94FT0F00C06P0L1IFD0U0023F0056
+[29.05.2015 16:34:07] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:07] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:34:07] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:07] LeKeks-gs<-:test-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :PLA NBD89E94FT0F00C06P0L1IFD0U0023F0056
+
+[29.05.2015 16:34:07] DEBUG | 192.168.178.35:4979: fetched 54 bytes from stream
+[29.05.2015 16:34:07] test-gs->UTM LeKeks-gs :SAU 45c9c703a51dfb101ca114c3b954f39e3
+[29.05.2015 16:34:07] DEBUG | Query: select * from `v_peerchat_users` where `user_nickname` = 'LeKeks-gs'
+[29.05.2015 16:34:07] LeKeks-gs<-:test-gs!*@* UTM LeKeks-gs :SAU 45c9c703a51dfb101ca114c3b954f39e3
+
+[29.05.2015 16:34:07] DEBUG | 192.168.178.57:50503: fetched 56 bytes from stream
+[29.05.2015 16:34:07] LeKeks-gs->UTM LeKeks-gs :SAU c6b338c863e1d1f14a8ff1406b944593419
+[29.05.2015 16:34:07] DEBUG | Query: select * from `v_peerchat_users` where `user_nickname` = 'LeKeks-gs'
+[29.05.2015 16:34:07] LeKeks-gs<-:LeKeks-gs!*@* UTM LeKeks-gs :SAU c6b338c863e1d1f14a8ff1406b944593419
+
+[29.05.2015 16:34:13] DEBUG | 192.168.178.35:4979: fetched 38 bytes from stream
+[29.05.2015 16:34:13] test-gs->PRIVMSG #GSP!swempire!Mh3aKJK4qM :hi
+[29.05.2015 16:34:13] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:13] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:13] LeKeks-gs<-:test-gs PRIVMSG #GSP!swempire!Mh3aKJK4qM :hi
+
+[29.05.2015 16:34:28] DEBUG | 192.168.178.57:50503: fetched 47 bytes from stream
+[29.05.2015 16:34:28] LeKeks-gs->PRIVMSG #GSP!swempire!Mh3aKJK4qM :>.> >.< <.<
+[29.05.2015 16:34:28] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:34:28] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:34:28] test-gs<-:LeKeks-gs PRIVMSG #GSP!swempire!Mh3aKJK4qM :>.> >.< <.<
+
+[29.05.2015 16:35:44] DEBUG | 192.168.178.57:50503: fetched 112 bytes from stream
+[29.05.2015 16:35:44] LeKeks-gs->SETCKEY #GSP!swempire!Mh3aKJK4qM LeKeks-gs :\b_flags\sr
+[29.05.2015 16:35:44] DEBUG | Query: select * from `v_peerchat_users` where `id` = 15
+[29.05.2015 16:35:44] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:35:44] DEBUG | Updating CKEY-Flags XpW4lqOa9X > #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:35:44] DEBUG | Query: update `peerchat_join` set`flags` ='b_flags=sr;' where `user` = 15 and `channel` = 44
+[29.05.2015 16:35:44] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:35:44] LeKeks-gs->PRIVMSG #GSP!swempire!Mh3aKJK4qM :@@@NFO \$flags$\rX\
+[29.05.2015 16:35:44] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:35:44] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:35:44] LeKeks-gs<-:s 702 #GSP!swempire!Mh3aKJK4qM #GSP!swempire!Mh3aKJK4qM LeKeks-gs BCAST :\b_flags\sr
+
+[29.05.2015 16:35:44] test-gs<-:s 702 #GSP!swempire!Mh3aKJK4qM #GSP!swempire!Mh3aKJK4qM LeKeks-gs BCAST :\b_flags\sr
+
+[29.05.2015 16:35:44] test-gs<-:LeKeks-gs PRIVMSG #GSP!swempire!Mh3aKJK4qM :@@@NFO \$flags$\rX\
+
+[29.05.2015 16:35:48] DEBUG | 192.168.178.35:4979: fetched 37 bytes from stream
+[29.05.2015 16:35:48] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :WST 1
+[29.05.2015 16:35:48] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:35:48] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:35:48] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:35:48] LeKeks-gs<-:test-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :WST 1
+
+[29.05.2015 16:35:50] DEBUG | 192.168.178.35:4979: fetched 167 bytes from stream
+[29.05.2015 16:35:50] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :NXT SID000001
+[29.05.2015 16:35:50] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:35:50] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:35:50] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:35:50] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :PLA N27D86D6AT0F01C00P1L0IFD0U0023F00BB
+[29.05.2015 16:35:50] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:35:50] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:35:50] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:35:50] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :TST SID000002;SAT01
+[29.05.2015 16:35:50] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:35:50] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:35:50] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:35:50] LeKeks-gs<-:test-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :NXT SID000001
+
+[29.05.2015 16:35:50] LeKeks-gs<-:test-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :PLA N27D86D6AT0F01C00P1L0IFD0U0023F00BB
+
+[29.05.2015 16:35:50] DEBUG | 192.168.178.57:50503: fetched 71 bytes from stream
+[29.05.2015 16:35:50] LeKeks-gs->UTM #GSP!swempire!Mh3aKJK4qM :PLA NBD89E94FT0F00C06P1L1IFD0U0023F0056
+[29.05.2015 16:35:50] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:35:50] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:35:50] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:35:50] test-gs<-:LeKeks-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :PLA NBD89E94FT0F00C06P1L1IFD0U0023F0056
+
+[29.05.2015 16:35:50] LeKeks-gs<-:test-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :TST SID000002;SAT01
+
+[29.05.2015 16:35:52] DEBUG | 192.168.178.35:4979: fetched 194 bytes from stream
+[29.05.2015 16:35:52] test-gs->UTM #GSP!swempire!Mh3aKJK4qM :GML PRE1;SID000002;PC02;;L00C00F01;L01C06F00
+[29.05.2015 16:35:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:35:52] DEBUG | Broadcasting UTM for channel #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:35:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:35:52] test-gs->PRIVMSG #GSP!swempire!Mh3aKJK4qM :@@@GML 192.168.178.35/OLD
+[29.05.2015 16:35:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:35:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:35:52] test-gs->SETCKEY #GSP!swempire!Mh3aKJK4qM test-gs :\b_flags\srhg
+[29.05.2015 16:35:52] DEBUG | Query: select * from `v_peerchat_users` where `id` = 16
+[29.05.2015 16:35:52] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:35:52] DEBUG | Updating CKEY-Flags XGa4lqOa9X > #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:35:52] DEBUG | Query: update `peerchat_join` set`flags` ='b_flags=srhg;' where `user` = 16 and `channel` = 44
+[29.05.2015 16:35:52] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:35:52] LeKeks-gs<-:test-gs!*@* UTM #GSP!swempire!Mh3aKJK4qM :GML PRE1;SID000002;PC02;;L00C00F01;L01C06F00
+
+[29.05.2015 16:35:52] test-gs<-:s 702 #GSP!swempire!Mh3aKJK4qM #GSP!swempire!Mh3aKJK4qM test-gs BCAST :\b_flags\srhg
+
+[29.05.2015 16:35:52] LeKeks-gs<-:test-gs PRIVMSG #GSP!swempire!Mh3aKJK4qM :@@@GML 192.168.178.35/OLD
+
+[29.05.2015 16:35:52] LeKeks-gs<-:s 702 #GSP!swempire!Mh3aKJK4qM #GSP!swempire!Mh3aKJK4qM test-gs BCAST :\b_flags\srhg
+
+[29.05.2015 16:35:53] DEBUG | 192.168.178.57:50503: fetched 58 bytes from stream
+[29.05.2015 16:35:53] LeKeks-gs->SETCKEY #GSP!swempire!Mh3aKJK4qM LeKeks-gs :\b_flags\srg
+[29.05.2015 16:35:53] DEBUG | Query: select * from `v_peerchat_users` where `id` = 15
+[29.05.2015 16:35:53] DEBUG | Query: select * from `peerchat_channels` where `channel_name` = '#GSP!swempire!Mh3aKJK4qM'
+[29.05.2015 16:35:53] DEBUG | Updating CKEY-Flags XpW4lqOa9X > #GSP!swempire!Mh3aKJK4qM
+[29.05.2015 16:35:53] DEBUG | Query: update `peerchat_join` set`flags` ='b_flags=srg;' where `user` = 15 and `channel` = 44
+[29.05.2015 16:35:53] DEBUG | Query: select * from `v_peerchat_users` where `channel_id` = 44
+[29.05.2015 16:35:53] test-gs<-:s 702 #GSP!swempire!Mh3aKJK4qM #GSP!swempire!Mh3aKJK4qM LeKeks-gs BCAST :\b_flags\srg
+
+[29.05.2015 16:35:53] LeKeks-gs<-:s 702 #GSP!swempire!Mh3aKJK4qM #GSP!swempire!Mh3aKJK4qM LeKeks-gs BCAST :\b_flags\srg
+
+[29.05.2015 16:36:46] DEBUG | 192.168.178.57:50503: fetched 6 bytes from stream
+[29.05.2015 16:36:46] LeKeks-gs->PING
+[29.05.2015 16:36:46] DEBUG | Query: delete from `peerchat_join` where `user` = 15
+[29.05.2015 16:36:46] LeKeks-gs<-PONG
+
+[29.05.2015 16:36:48] DEBUG | 192.168.178.35:4979: fetched 6 bytes from stream
+[29.05.2015 16:36:48] test-gs->PING
+[29.05.2015 16:36:48] DEBUG | Query: delete from `peerchat_join` where `user` = 16

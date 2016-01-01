@@ -1,0 +1,30 @@
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\bin\Debug\PeerChatServer.exe.config
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\bin\Debug\PeerChatServer.exe
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\bin\Debug\PeerChatServer.pdb
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\bin\Debug\PeerChatServer.xml
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\obj\Debug\PeerChatServer.Resources.resources
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\obj\Debug\PeerChatServer.vbproj.GenerateResource.Cache
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\obj\Debug\PeerChatServer.exe
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\obj\Debug\PeerChatServer.xml
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\obj\Debug\PeerChatServer.pdb
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\obj\Debug\PeerChatServer.vbprojResolveAssemblyReference.cache
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamepyPeerchatServer\bin\Debug\PeerChatServer.exe.config
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.exe
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.xml
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.pdb
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamepyPeerchatServer\bin\Debug\PeerChatServer.exe
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamepyPeerchatServer\bin\Debug\PeerChatServer.pdb
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamepyPeerchatServer\bin\Debug\PeerChatServer.xml
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.vbprojResolveAssemblyReference.cache
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.Resources.resources
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.vbproj.GenerateResource.Cache
+C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\bin\Debug\PeerChatServer.exe.config
+C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\bin\Debug\PeerChatServer.exe
+C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\bin\Debug\PeerChatServer.pdb
+C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\bin\Debug\PeerChatServer.xml
+C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.Resources.resources
+C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.vbproj.GenerateResource.Cache
+C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.exe
+C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.xml
+C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.pdb
+C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.vbprojResolveAssemblyReference.cache

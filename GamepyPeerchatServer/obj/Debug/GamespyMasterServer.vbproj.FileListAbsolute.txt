@@ -1,0 +1,28 @@
+c:\users\jan\documents\visual studio 2013\Projects\GamespyMasterServer\GamespyMasterServer\bin\Debug\GamespyMasterServer.exe.config
+c:\users\jan\documents\visual studio 2013\Projects\GamespyMasterServer\GamespyMasterServer\bin\Debug\GamespyMasterServer.exe
+c:\users\jan\documents\visual studio 2013\Projects\GamespyMasterServer\GamespyMasterServer\bin\Debug\GamespyMasterServer.pdb
+c:\users\jan\documents\visual studio 2013\Projects\GamespyMasterServer\GamespyMasterServer\bin\Debug\GamespyMasterServer.xml
+c:\users\jan\documents\visual studio 2013\Projects\GamespyMasterServer\GamespyMasterServer\obj\Debug\GamespyMasterServer.Resources.resources
+c:\users\jan\documents\visual studio 2013\Projects\GamespyMasterServer\GamespyMasterServer\obj\Debug\GamespyMasterServer.vbproj.GenerateResource.Cache
+c:\users\jan\documents\visual studio 2013\Projects\GamespyMasterServer\GamespyMasterServer\obj\Debug\GamespyMasterServer.exe
+c:\users\jan\documents\visual studio 2013\Projects\GamespyMasterServer\GamespyMasterServer\obj\Debug\GamespyMasterServer.xml
+c:\users\jan\documents\visual studio 2013\Projects\GamespyMasterServer\GamespyMasterServer\obj\Debug\GamespyMasterServer.pdb
+C:\Users\Jan\Documents\GamespyMasterServer\GamespyMasterServer\bin\Debug\GamespyMasterServer.exe.config
+C:\Users\Jan\Documents\GamespyMasterServer\GamespyMasterServer\bin\Debug\GamespyMasterServer.exe
+C:\Users\Jan\Documents\GamespyMasterServer\GamespyMasterServer\bin\Debug\GamespyMasterServer.pdb
+C:\Users\Jan\Documents\GamespyMasterServer\GamespyMasterServer\bin\Debug\GamespyMasterServer.xml
+C:\Users\Jan\Documents\GamespyMasterServer\GamespyMasterServer\obj\Debug\GamespyMasterServer.Resources.resources
+C:\Users\Jan\Documents\GamespyMasterServer\GamespyMasterServer\obj\Debug\GamespyMasterServer.vbproj.GenerateResource.Cache
+C:\Users\Jan\Documents\GamespyMasterServer\GamespyMasterServer\obj\Debug\GamespyMasterServer.exe
+C:\Users\Jan\Documents\GamespyMasterServer\GamespyMasterServer\obj\Debug\GamespyMasterServer.xml
+C:\Users\Jan\Documents\GamespyMasterServer\GamespyMasterServer\obj\Debug\GamespyMasterServer.pdb
+C:\Users\Jan\Documents\GamespyMasterServer\GamespyMasterServer\obj\Debug\GamespyMasterServer.vbprojResolveAssemblyReference.cache
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\obj\Debug\GamespyMasterServer.vbproj.GenerateResource.Cache
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\bin\Debug\PeerChatServer.exe.config
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\bin\Debug\PeerChatServer.exe
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\bin\Debug\PeerChatServer.pdb
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\bin\Debug\PeerChatServer.xml
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\obj\Debug\PeerChatServer.Resources.resources
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\obj\Debug\PeerChatServer.exe
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\obj\Debug\PeerChatServer.xml
+C:\Users\Jan\Documents\Visual Studio 2013\Projects\peerchat\GamespyMasterServer\obj\Debug\PeerChatServer.pdb
