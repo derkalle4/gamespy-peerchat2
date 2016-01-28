@@ -7,8 +7,15 @@
     Public Property KeyHash As String = String.Empty
     Public Property MasterServer As Integer = -1
     Public Property Channel As IRCChannel
+    Public Property Role As String
 
     Dim dfs As DynamicFieldStorage
+
+    Public ReadOnly Property ModeName As String
+        Get
+            Return Me.Role & Me.NickName
+        End Get
+    End Property
 
     Public ReadOnly Property UserParams As DynamicFieldStorage
         Get

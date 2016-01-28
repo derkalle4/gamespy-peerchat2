@@ -62,7 +62,7 @@ Public Class PeerChatPacket
         If paramStr <> String.Empty Then paramStr = Mid(paramStr, 1, paramStr.Length - 1)
         Dim formatedCommand As String = String.Empty
 
-        'TODO: check if I can replace * with the real host
+        'NOTE: * might be replaced with the "real" host
         If client.NickName <> String.Empty Then
             formatedCommand = ":" & client.NickName & "!" & client.UserName
             If client.GameSpyLoggedIn Then formatedCommand &= "|" & client.GameSpyAccountID.ToString()

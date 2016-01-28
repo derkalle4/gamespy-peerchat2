@@ -22,11 +22,7 @@
         Dim users As List(Of IRCUser) = Me.client.server.MySQL.GetuserList(Me.channel)
         If Not users Is Nothing Then
             For Each user As IRCUser In users
-                'TODO: optimize
-                'If Me.client.server.GetClientByUserId(user.ID) Is Nothing Then Continue For
-                'TODO: fix
-                If user.NickName.Contains("test") Then userList &= "@"
-                userList &= user.NickName & " "
+                userList &= user.ModeName & " "
             Next
             If userList.Length > 0 Then userList = Mid(userList, 1, userList.Length - 1)
         End If

@@ -15,8 +15,8 @@
             Return True
         End If
 
+        'Channel info update
         Me.client.SendPacket(New TopicPacket(Me.client, Me.channel))
-        'Me.client.SendPacket(New WeirdPacket(Me.client))
         Me.client.SendPacket(New NameListPacket(Me.client, Me.channel))
         Me.client.SendPacket(New NameListEndPacket(Me.client, Me.channel))
 
@@ -24,10 +24,8 @@
     End Function
 
     Public Overrides Function CompileResponse() As String
-        'TODO: check if there's another res
-        'If Me.channel Is Nothing Then
-        Return IRCStdFormat("324", Me.client.NickName, Me.channel.ChannelName, "+tnp")
-        'End If
+        'TODO: implement proper flag set
+        Return IRCStdFormat(IRC_RES_MODE, Me.client.NickName, Me.channel.ChannelName, "+tnp")
     End Function
 
 End Class

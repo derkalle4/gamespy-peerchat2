@@ -8,11 +8,11 @@ Public Class PeerChatClient
     Public Property server As GamespyServer         'Ref. to serverobj.
     Public Property RemoteIPEP As Net.IPEndPoint    'client's remote endpoint
 
-    Private readThread As Thread    'workthread
-    Private writeThread As Thread
-    Private client As TcpClient     'client
-    Private stream As NetworkStream
-    Private running As Boolean      'true if client is ok
+    Private readThread As Thread    'read -thread
+    Private writeThread As Thread   'write-thread
+    Private client As TcpClient     'client object
+    Private stream As NetworkStream 'tcpstream-object
+    Private running As Boolean      'true if client is ok, used to terminate any remaining loops
 
     Public Property CipherActive As Boolean = False
     Public Property GameName As String = String.Empty
@@ -27,7 +27,6 @@ Public Class PeerChatClient
     Public Property NickName As String
     Public Property CDKey As String
 
-    'Public Property ClientMode As Byte = 0
     Public Property ClientId As Int32 = -1
 
     Public Property GameSpyAccountID As Int32 = -1
@@ -45,8 +44,6 @@ Public Class PeerChatClient
     Public Property TXCipherKey As DESCryptKey
 
     Private packetQueue As Queue(Of PeerChatPacket)
-
-    'Public Property CurrentChannel As IRCChannel
 
     Public Event ConnectionLost(ByVal sender As PeerChatClient)  'Used to pass connection loss to server
 
@@ -78,6 +75,7 @@ Public Class PeerChatClient
     Private Sub Listen()
         Try
             'TODO: ping the clients and implement a custom timeout
+            'the client is on idle during the entire game therefore it can't be disconnected like the serverlist-client
             'Me.stream.ReadTimeout = TCP_CLIENT_TIMEOUT
             Dim buffer() As Byte = {}
 
@@ -132,7 +130,9 @@ Public Class PeerChatClient
         Try
             'Just buffering 1k instead of seeking for the \r\n within the TCP-stream (faster)
             'NOTE: packet fragmentation is in theory possible, however it doesn't seem like
-            'they push out fragmented data so it should be fine
+            'they push out fragmented data so it should be fine in most cases
+            'TODO: rewrite DES-cipher to allow cryptostream-functionality and seek for the \r\n to avoid any fragmentation
+
             Dim bufferLen As Int32 = stream.Read(buffer, 0, TCP_CLIENT_BUFFERSIZE)
             Array.Resize(buffer, bufferLen)
             If bufferLen = 0 Then Return False 'end of stream
@@ -143,30 +143,21 @@ Public Class PeerChatClient
         Logger.Log("{0}: fetched {1} bytes from stream", LogLevel.Verbose, Me.RemoteIPEP.ToString(), buffer.Length.ToString())
         Return True
     End Function
+
     Private Function HandlePacket(ByVal inputString As String) As Boolean
 
         'filter the \r\n indicating the end of the commandline
         InputString = Replace(InputString, vbCrLf, String.Empty)
         Logger.Log("{0}->{1}", LogLevel.Protocol, Me.NickName, inputString)
 
-        'TODO: clean that up
         'IRC params are split by a simple space
         Dim inputParams() As String = Split(inputString, IRC_SPLITKEY)
-        'The first string is the actual command
         Dim command As String = inputParams(0)
-
-        'moved to PeerChatPacket-class
-        'If inputParams.Length > 1 Then
-        '   Array.Copy(inputParams, 1, inputParams, 0, inputParams.Length - 1)
-        '   Array.Resize(inputParams, inputParams.Length - 1)
-        'Else
-        '   inputParams = {}
-        'End If
 
         Dim packet As PeerChatPacket = Nothing
 
         'assign the correct packethandling-class
-        Select Case command
+        Select Case inputParams(0)
             Case IRC_CMD_CRYPT
                 packet = New CryptPacket(Me)
             Case IRC_CMD_USRIP
@@ -206,7 +197,7 @@ Public Class PeerChatClient
             Case IRC_CMD_PART
                 packet = New PartPacket(Me)
             Case Else
-                Logger.Log("Dropping unknown TCP packet ({0})", LogLevel.Verbose, command)
+                Logger.Log("Dropping unknown TCP packet ({0})", LogLevel.Verbose, Command)
         End Select
 
         If Not packet Is Nothing Then
@@ -235,14 +226,23 @@ Public Class PeerChatClient
     End Sub
 
     Public Sub SendPacket(ByVal packet As PeerChatPacket)
+        'Just add it to the packet-queue
         Me.packetQueue.Enqueue(packet)
     End Sub
 
     Private Sub SendThreadRun()
+        'As we got plenty of different objects running on different threads which call SendPacket we've to ensure that packets are not sent
+        'while a transmission is in progress. Storing the packets in a queue will solve this problem and doesn't require time-consuming NOP-loops
         While Me.running
             If Me.packetQueue.Count > 0 Then
-                Dim packet As PeerChatPacket = Me.packetQueue.Dequeue
-                Me.SendString(packet.CompileResponse(), packet.UseCipher)
+                Try
+                    Dim packet As PeerChatPacket = Me.packetQueue.Dequeue
+                    Me.SendString(packet.CompileResponse(), packet.UseCipher)
+                Catch ex As Exception
+                    'don't exit here as the read fail and call Dispose()
+                    Thread.Sleep(constants.TCP_CLIENT_PSH_SLEEP)
+                End Try
+
             End If
             Thread.Sleep(constants.TCP_CLIENT_PSH_SLEEP)
         End While
