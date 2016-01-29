@@ -1,5 +1,4 @@
-﻿
-Public Class GetCkeyPacket
+﻿Public Class GetCkeyPacket
     Inherits PeerChatPacket
     Sub New(ByVal client As PeerChatClient)
         MyBase.New(client)
@@ -9,7 +8,6 @@ Public Class GetCkeyPacket
     Private cookie As String = String.Empty
     Private flags() As String
     Private channel As IRCChannel
-    Private currentUser As IRCUser
 
     Private userList As New Queue(Of IRCUser)
 
@@ -38,40 +36,43 @@ Public Class GetCkeyPacket
                     Me.client.SendPacket(Me)
                 Next
             End If
+
         Else
-            'TODO: get user
-            ' Me.currentUser = 
-            Me.client.SendPacket(Me)
+
+            Dim user As IRCUser = Me.client.server.MySQL.GetUserByUniqueNick(Me.Params(1), Me.channel)
+            If Not user Is Nothing Then
+                Me.userList = New Queue(Of IRCUser)
+                Me.userList.Enqueue(user)
+                Me.client.SendPacket(Me)
+            End If
         End If
+
         Me.client.SendPacket(New GetCKeyEndPacket(Me.client, Me.channel, Me.cookie))
         Return True
     End Function
 
     Public Overrides Function CompileResponse() As String
         ':s 702 test #GSP!swempire user1 000 :\id|123\
-        Me.currentUser = Me.userList.Dequeue()
-
-        Dim name As String = currentUser.NickName
-        'If name.Contains("test") Then name = "@" & name
-
+        Dim user As IRCUser = Me.userList.Dequeue()
 
         Return IRCStdFormat(IRC_RES_GETCKEY,
                             Me.client.NickName,
                             Me.channel.ChannelName,
-                            name,
+                            user.NickName,
                             Me.cookie,
-                            ":" & Me.BuildParamStr())
+                            ":" & Me.BuildParamStr(user))
     End Function
 
-    Private Function BuildParamStr() As String
+    Private Function BuildParamStr(ByVal user As IRCUser) As String
+
         Dim res As String = String.Empty
         For Each s As String In Me.flags
             If s = String.Empty Then Continue For
             Select Case s
                 Case "username"
-                    res &= "\" & Me.currentUser.UserName & "|" & Me.currentUser.GameSpyId.ToString()
+                    res &= "\" & user.UserName & "|" & user.GameSpyId.ToString()
                 Case Else
-                    res &= "\" & Me.currentUser.UserParams.GetValue(s)
+                    res &= "\" & user.UserParams.GetValue(s)
             End Select
         Next
         Return res

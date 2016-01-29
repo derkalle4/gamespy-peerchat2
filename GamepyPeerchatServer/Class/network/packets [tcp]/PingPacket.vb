@@ -14,4 +14,3 @@
         Return IRC_CMD_PONG
     End Function
 End Class
-

@@ -28,3 +28,13 @@ C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\obj\Deb
 C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.xml
 C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.pdb
 C:\Users\Jan\Documents\GamespyMasterServer\peerchat\GamepyPeerchatServer\obj\Debug\PeerChatServer.vbprojResolveAssemblyReference.cache
+F:\git\GamespyPeerchatserver\GamepyPeerchatServer\bin\Debug\PeerChatServer.exe.config
+F:\git\GamespyPeerchatserver\GamepyPeerchatServer\obj\Debug\PeerChatServer.exe
+F:\git\GamespyPeerchatserver\GamepyPeerchatServer\obj\Debug\PeerChatServer.xml
+F:\git\GamespyPeerchatserver\GamepyPeerchatServer\obj\Debug\PeerChatServer.pdb
+F:\git\GamespyPeerchatserver\GamepyPeerchatServer\obj\Debug\PeerChatServer.vbprojResolveAssemblyReference.cache
+F:\git\GamespyPeerchatserver\GamepyPeerchatServer\obj\Debug\PeerChatServer.Resources.resources
+F:\git\GamespyPeerchatserver\GamepyPeerchatServer\obj\Debug\PeerChatServer.vbproj.GenerateResource.Cache
+F:\git\GamespyPeerchatserver\GamepyPeerchatServer\bin\Debug\PeerChatServer.exe
+F:\git\GamespyPeerchatserver\GamepyPeerchatServer\bin\Debug\PeerChatServer.pdb
+F:\git\GamespyPeerchatserver\GamepyPeerchatServer\bin\Debug\PeerChatServer.xml

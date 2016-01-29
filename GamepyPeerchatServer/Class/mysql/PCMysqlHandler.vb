@@ -1,6 +1,7 @@
 ﻿'MySQLHandler-Wrapper for Peerchatserver SQL-actions
 'JW "LeKeks" 01/2015
 Imports MySql.Data.MySqlClient
+Imports System.Security.Cryptography
 
 Public Class PCMysqlHandler
     Inherits MySQLHandler
@@ -170,7 +171,7 @@ Public Class PCMysqlHandler
     End Sub
     Public Sub UpdateKeyHash(ByVal client As PeerChatClient)
         Dim sql As String = "update `peerchat_users` set" &
-                              "`user_keyhash` = '" & EscapeString(client.CDKey) & "'" &
+                              "`user_keyhash` = '" & Me.MD5StringHash(EscapeString(client.CDKey)) & "'" &
                               " where `id` = " & client.ClientId
         Me.NonQuery(sql)
     End Sub
@@ -216,8 +217,8 @@ Public Class PCMysqlHandler
     Public Sub UpdateCkey(ByVal user As IRCUser, ByVal channel As IRCChannel)
         user.Key = user.UserParams.ToParameterString()
         Dim sql As String = "update `peerchat_join` set" &
-                          "`flags` ='" & EscapeString(user.Key) & "'" &
-                          " where `user` = " & user.ID & " and `channel` = " & channel.Id
+                          "`join_flags` ='" & EscapeString(user.Key) & "'" &
+                          " where `join_user` = " & user.ID & " and `join_channel` = " & channel.Id
         Me.NonQuery(sql)
     End Sub
 
@@ -245,9 +246,12 @@ Public Class PCMysqlHandler
 
 
 
-    Public Function GetUserById(ByVal id As Integer) As IRCUser
+    Public Function GetUserById(ByVal id As Integer, Optional ByVal channel As IRCChannel = Nothing) As IRCUser
         Dim sql As String = "select * from `v_peerchat_users`" &
             " where `id` = " & id.ToString()
+        If Not channel Is Nothing Then
+            sql &= " and `join_channel` = " & channel.Id.ToString()
+        End If
 
         SyncLock Me.connection
             Using res As MySqlDataReader = Me.DoQuery(sql)
@@ -265,9 +269,13 @@ Public Class PCMysqlHandler
     Public Function GetUserByClient(ByVal client As PeerChatClient) As IRCUser
         Return Me.GetUserById(client.ClientId)
     End Function
-    Public Function GetUserByUniqueNick(ByVal uqNick As String) As IRCUser
+    Public Function GetUserByUniqueNick(ByVal uqNick As String, Optional ByVal channel As IRCChannel = Nothing) As IRCUser
         Dim sql As String = "select * from `v_peerchat_users`" &
         " where `user_nickname` = '" & EscapeString(uqNick) & "'"
+
+        If Not channel Is Nothing Then
+            sql &= " and `join_channel` = " & channel.Id.ToString()
+        End If
 
         SyncLock Me.connection
             Using res As MySqlDataReader = Me.DoQuery(sql)
@@ -279,10 +287,11 @@ Public Class PCMysqlHandler
         End SyncLock
         Return Nothing
     End Function
-    Public Function GetUserList(ByVal channel As IRCChannel)
+
+    Public Function GetUserList(ByVal channel As IRCChannel) As List(Of IRCUser)
         'name is filtered as it's fetched from the db
         Dim sql As String = "select * from `v_peerchat_users` " &
-            "where `channel_id` = " & channel.Id.ToString()
+            "where `join_channel` = " & channel.Id.ToString()
 
         SyncLock Me.connection
             Using res As MySqlDataReader = Me.DoQuery(sql)
@@ -311,12 +320,13 @@ Public Class PCMysqlHandler
         u.NickName = GetVal(r, "user_nickname")
         u.UserName = GetVal(r, "user_username")
         u.KeyHash = GetVal(r, "user_keyhash")
-        u.Key = GetVal(r, "flags")
+        u.Key = GetVal(r, "join_flags")
+        u.Role = GetVal(r, "join_role")
 
         If (Not IsDBNull(r("channel_name"))) Then
             u.Channel = New IRCChannel()
             u.Channel.ChannelName = GetVal(r, "channel_name")
-            u.Channel.Id = GetVal(r, "channel_id")
+            u.Channel.Id = GetVal(r, "join_channel")
             u.Channel.Key = GetVal(r, "channel_key")
         End If
 
@@ -341,21 +351,50 @@ Public Class PCMysqlHandler
 
     Public Sub ClearJoins(ByVal client As PeerChatClient)
         Dim sql As String = "delete from `peerchat_join` where " &
-                          "`user` = " & client.ClientId.ToString()
+                          "`join_user` = " & client.ClientId.ToString()
         Me.NonQuery(sql)
     End Sub
 
 
-    Public Sub JoinChannel(ByVal client As PeerChatClient, ByVal newChannel As IRCChannel)
+    Public Sub JoinChannel(ByVal client As PeerChatClient, ByVal newChannel As IRCChannel, Optional ByVal role As String = "")
         Dim sql As String = "replace into `peerchat_join` set " &
-                            "`channel` = " & newChannel.Id.ToString() & " , " &
-                            "`user` = " & client.ClientId.ToString()
-        Me.NonQuery(sql)
-    End Sub
-    Public Sub PartChannel(ByVal client As PeerChatClient, ByVal channel As IRCChannel)
-        Dim sql As String = "delete from `peerchat_join` where " &
-                        "`user` = " & client.ClientId.ToString() & " and `channel` = " & channel.Id.ToString
+                            "`join_channel` = " & newChannel.Id.ToString() & " , " &
+                            "`join_user` = " & client.ClientId.ToString() & " , " &
+                            "`join_role` = '" & EscapeString(role) & "'"
         Me.NonQuery(sql)
     End Sub
 
+    Public Sub PartChannel(ByVal user As IRCUser, ByVal channel As IRCChannel)
+        Dim sql As String = "delete from `peerchat_join` where " &
+                        "`join_user` = " & user.ID.ToString() & " and `join_channel` = " & channel.Id.ToString
+        Me.NonQuery(sql)
+        If channel.HostId = user.ID Then
+            Me.DeleteChannel(channel)
+        End If
+    End Sub
+
+
+    Public Sub DeleteChannel(ByVal channel As IRCChannel)
+        Dim sql As String = "delete from `peerchat_channels` where " &
+                  "`id` = " & channel.Id
+
+        Me.NonQuery(sql)
+    End Sub
+
+    Public Function MD5StringHash(ByVal strString As String) As String
+        Dim MD5 As New MD5CryptoServiceProvider
+        Dim Data As Byte()
+        Dim Result As Byte()
+        Dim Res As String = ""
+        Dim Tmp As String = ""
+
+        Data = System.Text.Encoding.ASCII.GetBytes(strString)
+        Result = MD5.ComputeHash(Data)
+        For i As Integer = 0 To Result.Length - 1
+            Tmp = Hex(Result(i))
+            If Len(Tmp) = 1 Then Tmp = "0" & Tmp
+            Res += Tmp
+        Next
+        Return Res
+    End Function
 End Class

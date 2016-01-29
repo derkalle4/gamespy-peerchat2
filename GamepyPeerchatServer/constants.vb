@@ -17,6 +17,8 @@
     'Response formats
     Public Const IRC_FORMAT_USRIP As String = ":=+@{0}"
 
+    Public Const IRC_USER_PREFIX_OP = "@"
+
     Public Const IRC_STDRESPONSE_FORMAT As String = ":s {0} {1}"
     Public Const IRC_RAWRESPONSE_FORMAT As String = "{0} {1}"
 
@@ -33,6 +35,7 @@
     Public Const IRC_RES_WHOEND As String = "315"
     Public Const IRC_RES_TOPIC As String = "332"
     Public Const IRC_RES_NOTOPIC As String = "331"
+    Public Const IRC_RES_MODE As String = "324"
 
     Public Const IRC_RES_NAMELIST As String = "353"
     Public Const IRC_RES_NAMELISTEND As String = "366"
@@ -67,7 +70,7 @@
     'IRC payload messages
     Public Const IRC_WHOEND_MSG As String = "End of Who"
     Public Const IRC_MOTD_MSG As String = "[motd] I like cookies :3"
-    Public Const IRC_WELCOME_MSG As String = "Hello, {0}. Nice to meet you."
+    Public Const IRC_WELCOME_MSG As String = "Hi, {0}. Pleased to meet you. GM-PC-Server standing by."
     Public Const IRC_NOTOPIC_MSG As String = "No Topic set."
     Public Const IRC_NOSUCHCHANNEL_MSG As String = "No such channel."
     Public Const IRC_NAMELISTEND_MSG As String = "End of NAMES list."
